@@ -1,8 +1,8 @@
 # 준비운동
-간단한 문제를 Q-Learning을 통해 풀어보는 tutorial 입니다. 이미 RL 기본 컨셉에 대해서 알고 계셔야 하며, 혹시 모르신다면, [여기](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)와 [여기], 또는 [여기]를 읽어 보실 것을 부탁 드립니다. 그리고 걱정 안 하셔도 됩니다. 이번 tutorial은 Neural Network를 사용하지 않는 간단한 예시니까요.
+간단한 문제를 Q-Learning을 통해 풀어보는 tutorial 입니다. 이미 RL 기본 컨셉에 대해서 알고 계셔야 하며, 혹시 모르신다면, [여기](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)를 읽어 보실 것을 부탁 드립니다. 그리고 걱정 안 하셔도 됩니다. 이번 tutorial은 Neural Network를 사용하지 않는 간단한 예시니까요.
 <br />
 <br />
-Mobile game Numero를 이 단계에서 바로 적용하기엔 난이도가 높을 것 같아서, 여기에선 Numero를 간단하게 변형해 보도록 하겠습니다. 아래와 같이 보드게임 판이 5 X 5로 있고, 우리의 목표는 출발점에서 목적지까지 도착하는 것입니다. 물론 그냥 가면 심심하니, 가는 길에 함정을 하나씩 파 넣도록 하겠습니다. 함정은 피해서 가도록 하는 것을 룰로 하겠습니다. 
+Mobile game Numero를 이 단계에서 바로 적용하기엔 난이도가 높을 것 같아서, 여기에선 Numero를 간단하게 변형해 보도록 하겠습니다. 아래와 같이 보드게임 판이 5 X 5로 있고, 우리의 목표는 출발점에서 목적지까지 도착하는 것입니다. 물론 그냥 가면 심심하니, 가는 길에 함정을 몇 개 파 넣도록 하겠습니다. 함정은 피해서 가도록 하는 것을 룰로 하겠습니다. 
 <br />
 <br />
 ![게임 한 판](images/simple5by5.png)
@@ -11,7 +11,7 @@ Mobile game Numero를 이 단계에서 바로 적용하기엔 난이도가 높�
 RL을 할 수 있는 approaches 중 하나는 Q-learning 입니다. 각각의 상황 별로 (`여기서 이렇게 하면` - `이렇게 된다`)를 정리해 놓은 테이블이라고 생각하시면 됩니다. 즉 (`state`, `action`) - (`value estimations`) 으로 표현됩니다. 
 <br />
 <br />
-잘 안 와닿으시죠? 위 보드게임 판의 작은 타일 하나 하나 (A0, A1, A2, A3.... E4)가 각각 state라고 생각해 봅시다. 그리고 각 state에서 우리가 할 수 있는 움직임들(위, 아래, 오른쪽, 왼쪽으로 움직이기)이 action으로 정의를 해 봅니다. Q-learning에서 각 (s-a) pair 별 value를 계산한 다는 것은, 내가 어느 타일 위에 도착했을 경우, 위/아래/오른쪽/왼쪽으로 갔을 경우의 value를 미리 다 계산해 놓겠다는 거죠. 
+잘 안 와닿으시죠? 위 보드게임 판의 작은 타일 하나 하나 (A0, A1, A2, A3.... E4)가 각각 state라고 생각해 봅시다. 그리고 각 state에서 우리가 할 수 있는 움직임들(위, 아래, 오른쪽, 왼쪽으로 움직이기)이 action이라 정의를 해 봅니다. Q-learning에서 각 (s-a) pair 별 value를 계산한 다는 것은, 내가 어느 타일 위에 도착했을 경우, 위/아래/오른쪽/왼쪽으로 갔을 경우의 value를 미리 다 계산해 놓겠다는 거죠. 
 <br />
 <br />
 사람은 딱 눈으로 봐도 대충 보이는 것들이 컴퓨터에게는 매우 힘이 드는 일이 됩니다. 예를 들어, 내가 B0이라는 타일에 도착 했을 때, 오른쪽으로 움직이는 것은 100% 자살행위라고 할 수 있죠 (C0 = Trap). 그러나 이렇게 눈으로 쉽게 보이는 것 외에, 사람도 약간 헷갈리는 경우의 수도 있을 수 있습니다. 예를 들어, 내가 A0에서 출발을 할 때, 오른쪽(B0)으로 움직이는 방법과  아래(A1)로 움직이는 방법 중 어느 action이 더 value가 높을 지는, 당장 숫자로 대답을 할 수 없습니다. 아무튼 이렇게 모든 타일에서의 모든 움직임에 대한 value를 계산하는 것이 바로 Q-learning입니다. 
@@ -85,10 +85,10 @@ reward = np.array(
      [ 0,  0,  0,  0, 10 ]]
 )
 ```
-다른 해외 tutorial들을 참고할 때, [OpenAI](https://gym.openai.com/)를 사용하거나 아주 작은 경우의 수를 쓰던데, 그 이유를 알겠더군요. 제가 만든 예시의 경우의 수가 25 * 5 (125)인 것이 갑자기 고통으로 다가오고 있습니다.
+다른 해외 tutorial들을 참고할 때, [OpenAI](https://gym.openai.com/)를 사용하거나 아주 작은 경우의 수를 쓰던데, 그 이유를 알겠더군요. 제가 만든 예시의 경우의 수가 25 * 5 (= 125)인 것이 갑자기 고통으로 다가오고 있습니다.
 
 #### transition table
-컴퓨터에게 또 알려줘야 할 것이 있습니다. 어느 state에서 위/아래/왼/오른쪽으로 움직였을때에 어디로 간다를 말해줘야 합니다. 우리가 array로 문제를 바꾸었기 때문인데요, 이쯤 되면 그냥 하드코딩을 하지 싶습ㄴ... 그러나 우린 준비운동 중이므로 열심히 쓰도록 하겠습니다. 
+컴퓨터에게 또 알려줘야 할 것이 있습니다. 어느 state에서 위/아래/왼/오른쪽으로 움직였을때에 next tile이 무엇인지 말해줘야 합니다. 우리가 array로 문제를 바꾸었기 때문인데요, 이쯤 되면 왜 하지 싶습ㄴ... 그러나 우린 준비운동 중이므로 열심히 쓰도록 하겠습니다. 
 첫 번째 row `[-1, 5, -1, 1, 0]`의 의미는, 위로는 못 가고 (-1), 아래로 내려가면 5번째 array로 가고 (aka state 6), 왼쪽으로는 못 가고 (-1), 오른쪽으로 가면 1번째 array로 가고 (aka state 2), 그리고 가만히 있으면 그냥 자기 자신 (0번째 array)에게 머문다는 의미 입니다. 
 <br />
 ```python
@@ -161,7 +161,7 @@ valid_actions = np.array(
 #### populate matrix
 이제 컴퓨터에게 일을 시킬 차례입니다. 무식한 방법으로 하겠습니다. 컴퓨터에게 1000번 동안 게임팜을 돌면서, 모든 경우의 수에 대한 reward를 계산하라고 할 것입니다. 
 ```python
-# 일단 0으로 채워진 q_matirx를 만듭니다. 이 	q_matrix 0 값을 업데이트 할 예정입니다. 
+# 일단 0으로 채워진 q_matirx를 만듭니다. 이 q_matrix 0 값을 업데이트 할 예정입니다. 
 q_matrix = np.zeros((25,5))
 
 for i in range(num_episode):
@@ -171,10 +171,10 @@ for i in range(num_episode):
         action         = random.choice(valid_actions[curr_state])              # valid actions 테이블을 보고, 아무 방향이나 랜덤으로 고른 뒤 (예를 들어 <아래> 라고 해봅시다),
         next_state     = transition_matrix[curr_state][action]                 # 그 랜덤 방향(예를 들어 <아래>)으로 갔을 때, 어느 타일 (next state)에 도달하는지 볼까? 
         future_rewards = []
-        for action_nxt in valid_actions[next_state]:                           # next tile에서 가능한 모든 뱡향이 주는 
+        for action_nxt in valid_actions[next_state]:                           # next state에서 가능한 모든 뱡향이 주는 
             future_rewards.append(q_matrix[next_state][action_nxt])            # rewards를 일단 다 구한 담에
         q_state = reward[curr_state][action] + gamma * max(future_rewards)     # 그 중 가장 큰 값에 gamma를 곱한 뒤에, 기존에 있던 reward 테이블에 있던 값과 더한 값을  
-        q_matrix[curr_state][action] = q_state                                 # 현재 tile에서 내가 고른 그 아무 방향에 대한 reward라고 기록을 하자
+        q_matrix[curr_state][action] = q_state                                 # 현재 tile에서 내가 고른 그 아무 방향에(예를 들어 <아래>) 대한 reward라고 기록을 하자
         curr_state = next_state                                                # 자 다음!
 
 ```
