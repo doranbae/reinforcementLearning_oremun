@@ -47,6 +47,9 @@ RL에 등장하는 새 컨셉 중에 하나는 gamma 입니다. Discount factor�
 <br />
 Episode는 쉽게 생각하셔서, 게임 한 판 이라고 보시면 됩니다. 우린 게임 1000판을 통해서 RL을 해볼 예정입니다. 
 <br />
+<br />
+사실 RL에서 또 다루는 중요한 컨셉 중 alpha와 epsilon이 있지만, 준비운동이라는 핑계로 여기에서는 다루지 않겠습니다. 없어도 답은 나오니....
+<br />
 ```python
 gamma        = 0.8
 num_episode  = 1000
@@ -213,7 +216,8 @@ Final q-matrix:
 * 아래로 가면: value가 2.62
 * 왼쪽으로 가면: value가 1.67
 * 오른쪽으로 가면: value가 -7.37 (<-- 이건 당연하죠. 바로 오른쪽에 함정이 있으니까요)
-즉 모든 action에 대한 value가 나왔으니, 우리가 이제 할 일은 좀 더 큰 value가 있는 방향으로 가면 되는 것입니다! 아래와 같이 말이죠 :)
+<br />
+이제 모든 action에 대한 value가 나왔으니, 우리가 이제 할 일은 좀 더 큰 value가 있는 방향으로 가면 되는 것입니다! 아래와 같이 말이죠 :)
 ![답 1](images/simple5by5_ans1.png)
 ![답 2](images/simple5by5_ans2.png)
 
