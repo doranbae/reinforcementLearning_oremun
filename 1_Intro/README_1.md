@@ -218,6 +218,7 @@ Final q-matrix:
 * 오른쪽으로 가면: value가 -7.37 (<-- 이건 당연하죠. 바로 오른쪽에 함정이 있으니까요)
 <br />
 이제 모든 action에 대한 value가 나왔으니, 우리가 이제 할 일은 좀 더 큰 value가 있는 방향으로 가면 되는 것입니다! 아래와 같이 말이죠 :)
+<br />
 ![답 1](images/simple5by5_ans1.png)
 ![답 2](images/simple5by5_ans2.png)
 
