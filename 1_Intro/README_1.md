@@ -48,7 +48,7 @@ RL에 등장하는 새 컨셉 중에 하나는 gamma 입니다. Discount factor�
 Episode는 쉽게 생각하셔서, 게임 한 판 이라고 보시면 됩니다. 우린 게임 1000판을 통해서 RL을 해볼 예정입니다. 
 <br />
 <br />
-사실 RL에서 또 다루는 중요한 컨셉 중 alpha와 epsilon이 있지만, 준비운동이라는 핑계로 여기에서는 다루지 않겠습니다. 없어도 답은 나오니....
+사실 RL에서 또 다루는 중요한 컨셉 중 alpha와 epsilon이 있지만, 준비운동이라는 핑계로 여기에서는 다루지 않겠습니다. 없어도 답은 나오니....참고로 alpha는 learning rate, epsilon은 공부 방법을 말합니다.
 <br />
 ```python
 gamma        = 0.8
@@ -220,8 +220,10 @@ Final q-matrix:
 <br />
 ![답 1](images/simple5by5_ans1.png)
 ![답 2](images/simple5by5_ans2.png)
+![컴퓨터가 알아 들을 수 있도록 변경](images/simple5by5_array.png)
 
-전체 코드는 `simple_qtable.py`에서 확인 부탁 드립니다. 
+
+위 코드는 `simple_qtable.py`에서 확인 부탁 드립니다. 만약 epsilon, alpha를 모두 사용한 코드를 보시고 싶으시다면 `simple_qtable_complete.py`를 확인 부탁 드립니다. 
 
 ### Source
 * [An introduction to Reinforcement Learning](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)
