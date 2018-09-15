@@ -219,9 +219,8 @@ Final q-matrix:
 이제 모든 action에 대한 value가 나왔으니, 우리가 이제 할 일은 좀 더 큰 value가 있는 방향으로 가면 되는 것입니다! 아래와 같이 말이죠 :)
 ![답 1](images/simple5by5_ans1.png)
 ![답 2](images/simple5by5_ans2.png)
-![컴퓨터가 알아 들을 수 있도록 변경](images/simple5by5_array.png)
 
-
+<br />
 위 코드는 `simple_qtable.py`에서 확인 부탁 드립니다. 만약 epsilon, alpha를 모두 사용한 코드를 보시고 싶으시다면 `simple_qtable_complete.py`를 확인 부탁 드립니다. 
 
 ### Source
