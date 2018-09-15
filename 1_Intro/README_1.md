@@ -3,18 +3,14 @@
 <br />
 <br />
 Mobile game Numero를 이 단계에서 바로 적용하기엔 난이도가 높을 것 같아서, 여기에선 문제를 간단하게 변형해 보도록 하겠습니다. 아래와 같이 타일이 5 X 5로 있고, 우리의 목표는 
-	     A         B         C         D         E
-	+---------+---------+---------+---------+---------+
-  1 |         |         |         |         |         |
-	+---------+---------+---------+---------+---------+
-  2 |         |         |         |         |         |
-	+---------+---------+---------+---------+---------+
-  3 |         |         |         |         |         |
-	+---------+---------+---------+---------+---------+
-  4 |         |         |         |         |         |
-	+---------+---------+---------+---------+---------+
-  5 |         |         |         |         |         |
-	+---------+---------+---------+---------+---------+
+
+| ------------- | ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| ------------- | ------------- | ------------- | ------------- |
 
 ## Q-Learning이란?
 RL을 할 수 있는 approaches 중 하나는 Q-learning 입니다. 각각의 상황 별로 (`여기서 이렇게 하면` - `이렇게 된다`)를 정리해 놓은 테이블이라고 생각하시면 됩니다. 즉 (`state *s*`, `action *a*`) - (`value estimations *v*`) 으로 표현됩니다. 
