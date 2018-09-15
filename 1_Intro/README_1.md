@@ -217,6 +217,7 @@ Final q-matrix:
 ![답 1](images/simple5by5_ans1.png)
 ![답 2](images/simple5by5_ans2.png)
 
+전체 코드는 `simple_qtable.py`에서 확인 부탁 드립니다. 
 
 ### Source
 * [An introduction to Reinforcement Learning](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)
