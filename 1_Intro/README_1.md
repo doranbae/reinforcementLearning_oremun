@@ -220,7 +220,6 @@ Final q-matrix:
 ![답 1](images/simple5by5_ans1.png)
 ![답 2](images/simple5by5_ans2.png)
 
-<br />
 위 코드는 `simple_qtable.py`에서 확인 부탁 드립니다. 만약 epsilon, alpha를 모두 사용한 코드를 보시고 싶으시다면 `simple_qtable_complete.py`를 확인 부탁 드립니다. 
 
 ### Source
