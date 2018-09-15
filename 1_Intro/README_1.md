@@ -2,14 +2,15 @@
 간단한 문제를 Q-Learning을 통해 풀어보는 튜토이알입니다. 이미 RL 기본 컨셉에 대해서 알고 계셔야 하며, 혹시 모르신다면, [여기](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)와 [여기], 또는 [여기]를 읽어 보실 것을 부탁 드립니다. 여기에서는 Neural Network를 사용하지 않는 간단한 예시로 시작하도록 하겠습니다. 
 <br />
 <br />
-Mobile game Numero를 이 단계에서 바로 적용하기엔 난이도가 높을 것 같아서, 여기에선 문제를 간단하게 변형해 보도록 하겠습니다. 아래와 같이 타일이 5 X 5로 있고, 우리의 목표는 
-
+Mobile game Numero를 이 단계에서 바로 적용하기엔 난이도가 높을 것 같아서, 여기에선 문제를 간단하게 변형해 보도록 하겠습니다. 아래와 같이 타일이 5 X 5로 있고, 우리의 목표는 출발점에서 목적지까지 도착하는 것입니다. 물론 그냥 가면 심심하니, 가는 길에 함정을 하나씩 파 넣도록 하겠습니다. 함정은 피해서 가도록 하는 것을 룰로 하겠습니다. 
+<br />
+<br />
 | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+|     START     |               |      TRAP     |               |
+|               |      TRAP     |      TRAP     |               |
+|               |      TRAP     |               |               |
+|               |               |               |               |
+|               |               |               |     FINISH    |
 | ------------- | ------------- | ------------- | ------------- |
 
 ## Q-Learning이란?
