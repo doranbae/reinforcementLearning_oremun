@@ -103,15 +103,14 @@ state 13에 대한 q-learning 값을 불렀더니, `[23.458178, 22.426283, 29.20
 * expected reward of going left    : 28.78
 * expected reward of going right   : 26.82 <-- 오른쪽으로 가지 못하니 이 숫자가 낮은 것이 말이 됩니다.
 * expected reward of doing nothing : 26.23
-<br />
-<br />
+
 마지막으로 어느 타일을 밟아 가면 좋을지 neural network를 통해 알아보도록 하겠습니다. 
+
 ```python
 start = 0
 finish = 24
 curr_path = start
 best_path = [start]
-
 
 while curr_path != finish:
     best_action = np.argmax(model.predict(np.identity(25)[curr_path: curr_path + 1]))
@@ -119,14 +118,17 @@ while curr_path != finish:
     best_path.append(next_path)
     curr_path = next_path
 
-
 print(best_path)
 ```
+
 이렇게 나오는군요!
+<br />
 ```python
 [0, 1, 6, 11, 16, 21, 22, 23, 24]
 ```
-[!result_nn](images/simple5by5_nn)
+![neural network](images/simple5by5_nn)
+<br />
+위 코드는 `simple_qtable_nn.py`에서 확인 부탁 드립니다.
 
 ### Source
 * [Adventures in machine Learning](http://adventuresinmachinelearning.com/reinforcement-learning-tutorial-python-keras/)

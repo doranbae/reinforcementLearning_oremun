@@ -222,11 +222,6 @@ Final q-matrix:
 
 위 코드는 `simple_qtable.py`에서 확인 부탁 드립니다. 만약 epsilon, alpha를 모두 사용한 코드를 보시고 싶으시다면 `simple_qtable_complete.py`를 확인 부탁 드립니다. 
 
-### Evaluate agent's performance after Q-learning
-
-
-
-
 ### Source
 * [An introduction to Reinforcement Learning](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)
 * [Reinforcement Learning with Q tables](https://itnext.io/reinforcement-learning-with-q-tables-5f11168862c8)
