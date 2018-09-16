@@ -162,7 +162,7 @@ valid_actions = np.array(
 )
 ```
 #### populate matrix
-이제 컴퓨터에게 일을 시킬 차례입니다. 무식한 방법으로 하겠습니다. 컴퓨터에게 1000번 동안 게임팜을 돌면서, 모든 경우의 수에 대한 reward를 계산하라고 할 것입니다. 
+이제 컴퓨터에게 일을 시킬 차례입니다. 무식한 방법으로 하겠습니다. 컴퓨터에게 1000번 동안 게임을 하면서, 모든 경우의 수에 대한 reward를 계산하라고 할 것입니다. 
 ```python
 # 일단 0으로 채워진 q_matirx를 만듭니다. 이 q_matrix 0 값을 업데이트 할 예정입니다. 
 q_matrix = np.zeros((25,5))
@@ -221,6 +221,11 @@ Final q-matrix:
 ![답 2](images/simple5by5_ans2.png)
 
 위 코드는 `simple_qtable.py`에서 확인 부탁 드립니다. 만약 epsilon, alpha를 모두 사용한 코드를 보시고 싶으시다면 `simple_qtable_complete.py`를 확인 부탁 드립니다. 
+
+### Evaluate agent's performance after Q-learning
+
+
+
 
 ### Source
 * [An introduction to Reinforcement Learning](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)
